@@ -33,12 +33,21 @@ export default class IdeaContainer extends Component {
     return (
       <section className='idea-creation-container'>
         <h1>Generate an Idea:</h1>
-        <img 
-          src='https://i.ya-webdesign.com/images/lightbulb-idea-png-4.png'
-          alt='lightbulb'
-          className='lightbulb'
-          onClick={this.handleClick}
-        ></img>
+        {
+          this.state.isClicked
+          ? <img 
+              src='https://i.imgur.com/DcBU7GG.jpg'
+              alt='lightbulb'
+              className='lightbulb'
+              onClick={this.handleClick}
+            ></img>
+          : <img 
+              src='https://i.ya-webdesign.com/images/lightbulb-idea-png-4.png'
+              alt='lightbulb'
+              className='lightbulb'
+              onClick={this.handleClick}
+            ></img>
+        }
         {
           this.state.isClicked
           ? this.generateIdea()

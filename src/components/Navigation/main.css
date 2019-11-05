@@ -1,4 +1,7 @@
 .navigation {
   display: flex;
   justify-content: center;
+  background-color: purple;
+  color: white;
+  border: 2px solid black;
 }

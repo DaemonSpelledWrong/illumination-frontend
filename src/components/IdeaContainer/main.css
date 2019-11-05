@@ -2,8 +2,24 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  background-color: white;
+  color: black;
 }
 
+.idea-creation-container-dark {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: black;
+  color: white;
+}
+
+
 .lightbulb {
-  width: 150px;
+  width: 250px;
+
+}
+
+.lightbulb:hover {
+  cursor: pointer;
 }
