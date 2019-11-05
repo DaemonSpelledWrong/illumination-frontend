@@ -6,23 +6,37 @@ import IdeaContainer from '../IdeaContainer';
 
 export default class App extends Component {
 
-  componentDidMount() {
-    fetch('https://wordsapiv1.p.mashape.com/words/illumination', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Mashape-Key': '9a873339a8mshded094cafd335d0p155555jsn1edc8a14e4df'
-      }
-    })
+  state = {
+    nouns: [],
+    adjectives: [],
+    verbs: []
+  }
+
+  componentDidMount(){
+    fetch('http://localhost:3000/nouns')
       .then(response => response.json())
-      .then(console.log)
+      .then(nouns => this.setState({ nouns }))
+    fetch('http://localhost:3000/adjectives')
+      .then(response => response.json())
+      .then(adjectives => this.setState({ adjectives }))
+    fetch('http://localhost:3000/verbs')
+      .then(response => response.json())
+      .then(verbs => this.setState({ verbs }))
   }
 
   render() {
+    const {nouns, adjectives, verbs} = this.state
     return(
       <section className='App'>
         <Navigation />
-        <IdeaContainer />
+        {nouns.length > 0 && verbs.length > 0 && adjectives.length > 0 
+          ? <IdeaContainer
+              allNouns={nouns}
+              allAdjectives={adjectives}
+              allVerbs={verbs}
+            />
+            : null
+        }
       </section>
     )
   }
